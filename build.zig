@@ -34,6 +34,9 @@ pub fn build(b: *std.Build) void {
     });
 
     exe.linkLibC();
+
+    exe.addIncludePath(b.path("include"));
+    exe.addLibraryPath(b.path("lib"));
     exe.linkSystemLibrary2("raylib", .{ .preferred_link_mode = .static });
     // exe.linkSystemLibrary("raylib");
 
